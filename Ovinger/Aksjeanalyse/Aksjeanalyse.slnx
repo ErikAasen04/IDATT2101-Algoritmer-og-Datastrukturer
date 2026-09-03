@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Aksjeanalyse.vcxproj" />
+  <Project Path="Aksjeanalyse.vcxproj" Id="f85f591f-4f49-46ee-8cca-0e9b6c40a6b0" />
 </Solution>

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Users\erika\Downloads\aksjenanalyse.c">
+    <ClCompile Include="Aksjeanalyse.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
