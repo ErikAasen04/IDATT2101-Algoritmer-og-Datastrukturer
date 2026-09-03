@@ -1,3 +1,0 @@
-﻿  Aksjeanalyse.c
-C:\PROGGING\IDATT2101\Ovinger\Aksjeanalyse\Aksjeanalyse.c(7,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Aksjeanalyse.vcxproj -> C:\PROGGING\IDATT2101\Ovinger\Aksjeanalyse\x64\Debug\Aksjeanalyse.exe
