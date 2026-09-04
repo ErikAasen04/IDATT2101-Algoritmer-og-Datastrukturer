@@ -30,7 +30,7 @@ double method3(double x, int n) {
 
 int main() {
 	double x_value = 1.002;
-	int n_value = 3000;
+	int n_value = 2000;
 	int repetetisions = 1000000;
 
 	double result1 = method1(x_value, n_value);
