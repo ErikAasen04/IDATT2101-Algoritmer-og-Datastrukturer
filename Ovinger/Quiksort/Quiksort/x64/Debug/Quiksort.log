@@ -1,0 +1,4 @@
+﻿  Quiksort.c
+C:\Users\erika\GIT-REPOS\IDATT2101-Algoritmer-og-Datastrukturer\Ovinger\Quiksort\Quiksort.c(251,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\erika\GIT-REPOS\IDATT2101-Algoritmer-og-Datastrukturer\Ovinger\Quiksort\Quiksort.c(258,9): warning C4013: 'memcpy' undefined; assuming extern returning int
+  Quiksort.vcxproj -> C:\Users\erika\GIT-REPOS\IDATT2101-Algoritmer-og-Datastrukturer\Ovinger\Quiksort\x64\Debug\Quiksort.exe
