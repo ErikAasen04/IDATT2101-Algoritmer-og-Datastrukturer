@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Rekursjon.c.vcxproj" Id="1b568af6-9e65-46f0-8d83-6c2dda94163b" />
+</Solution>
