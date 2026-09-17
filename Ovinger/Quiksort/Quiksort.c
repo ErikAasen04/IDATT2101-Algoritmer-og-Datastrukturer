@@ -60,7 +60,6 @@ int median3sort(int array[], int low, int high)
     return middle;
 }
 
-/* Deler tabellen rundt pivot og returnerer pivotens plass. */
 int partition(int array[], int low, int high)
 {
     int middle = median3sort(array, low, high);
@@ -96,7 +95,6 @@ int partition(int array[], int low, int high)
 
 void quickSort(int array[], int low, int high)
 {
-    /* Tom deltabell eller ett element er allerede sortert. */
     if (low >= high)
     {
         return;
@@ -122,13 +120,11 @@ void dualPivotQuickSort(int array[], int low, int high)
         return;
     }
 
-    /* Hent pivotverdier omtrent en tredjedel inn fra hver ende. */
     int third = (high - low) / 3;
 
     swap(&array[low], &array[low + third]);
     swap(&array[high], &array[high - third]);
 
-    /* Sørg for at venstre pivot er minst. */
     if (array[low] > array[high])
     {
         swap(&array[low], &array[high]);
@@ -158,7 +154,6 @@ void dualPivotQuickSort(int array[], int low, int high)
             swap(&array[current], &array[right]);
             right--;
 
-            /* Tallet vi hentet fra høyre kan høre hjemme til venstre. */
             if (array[current] < p)
             {
                 swap(&array[current], &array[left]);
@@ -169,7 +164,6 @@ void dualPivotQuickSort(int array[], int low, int high)
         current++;
     }
 
-    /* Sett begge pivotverdiene på sine endelige plasser. */
     left--;
     right++;
 
@@ -177,8 +171,6 @@ void dualPivotQuickSort(int array[], int low, int high)
     swap(&array[high], &array[right]);
 
     dualPivotQuickSort(array, low, left - 1);
-
-    /* Ved like pivoter er hele midtområdet allerede likt. */
     if (p < q)
     {
         dualPivotQuickSort(array, left + 1, right - 1);
@@ -202,7 +194,7 @@ void fill_array(int array[], int number, int type)
         case 1:
             /* Annenhvert element har samme verdi. */
             array[i] = (i % 2 == 0)
-                ? 42
+                ? 25
                 : (rand() % 32768) * 32768
                 + (rand() % 32768);
             break;
@@ -227,27 +219,14 @@ int main(void)
     int* single_array = malloc(bytes);
     int* dual_array = malloc(bytes);
 
-    if (original == NULL ||
-        single_array == NULL ||
-        dual_array == NULL)
-    {
-        printf("Kunne ikke reservere nok minne.\n");
-
-        free(original);
-        free(single_array);
-        free(dual_array);
-
-        return 1;
-    }
-
     const char* data_names[] = {
-        "Tilfeldige tall",
-        "Mange duplikater",
-        "Stigende sortert",
-        "Synkende sortert"
+        "Random numbers",
+        "Many duplicates",
+        "Already sorted",
+        "Reverse sorted"
     };
 
-    /* Fast startverdi gir gjentakbare forsøk i samme programmiljø. */
+  
     srand(time(NULL));
 
     for (int type = 0; type < 4; type++)
@@ -284,17 +263,17 @@ int main(void)
         bool dual_sorted_ok =
             is_sorted(dual_array, number);
 
-        printf("\n=== %s: %d tall ===\n", data_names[type], number);
+        printf("\n--- %s: %d numbers ---\n", data_names[type], number);
 
-        printf("Single-pivot totalt: %.6f sekunder\n", time_single);
-        printf("Sjekksum: %s | Rekkefolge: %s\n",
-            single_checksum_ok ? "BESTATT" : "FEILET",
-            single_sorted_ok ? "BESTATT" : "FEILET");
+        printf("Single-pivot total: %.6f seconds\n", time_single);
+        printf("Checksum: %s | Same order: %s\n",
+            single_checksum_ok ? "SUCCESS" : "FAILED",
+            single_sorted_ok ? "SUCCESS" : "FAILED");
 
-        printf("Dual-pivot totalt:   %.6f sekunder\n", time_dual);
-        printf("Sjekksum: %s | Rekkefolge: %s\n",
-            dual_checksum_ok ? "BESTATT" : "FEILET",
-            dual_sorted_ok ? "BESTATT" : "FEILET");
+        printf("Dual-pivot totalt:   %.6f seconds\n", time_dual);
+        printf("Checksum: %s | Same order: %s\n",
+            dual_checksum_ok ? "SUCCESS" : "FAILED",
+            dual_sorted_ok ? "SUCCESS" : "FAILED");
     }
 
     free(original);
