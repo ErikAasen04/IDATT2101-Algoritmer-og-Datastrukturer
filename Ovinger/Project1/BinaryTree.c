@@ -85,26 +85,14 @@ void printTree(const TreeNode* root) {
 	}
 }
 
-void freeTree(TreeNode* node) {
-	if (node == NULL) {
-		return;
-	}
-
-	freeTree(node->venstreBarn);
-	freeTree(node->høyreBarn);
-
-	free(node->word);
-	free(node);
-}
-
 int main(void) {
 	TreeNode* root = NULL;
 	char word[100];
 
-	printf("Skriv ord med mellomrom mellom. Avslutt med 'stopp':\n");
+	printf("enter words with spaces inbetween, write quit when you are finished: \n");
 
 	while (scanf("%99s", word) == 1) {
-		if (strcmp(word, "stopp") == 0) {
+		if (strcmp(word, "quit") == 0) {
 			break;
 		}
 
@@ -112,10 +100,6 @@ int main(void) {
 	}
 
 	printTree(root);
-	freeTree(root);
 
 	return 0;
 }
-
-
-
